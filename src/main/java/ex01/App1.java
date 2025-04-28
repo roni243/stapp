@@ -41,18 +41,18 @@ public class App1 {
 
         op3.setQty(op3.getQty() - 7);
 
-        // 1번 문제 : 상품 목록 화면!
+        // 1번 문제 : 상품 목록 화면!!
         // List<Product> -> List<ProductDTO>
 
-        // 2번 문제 : 상품 상세 화면! (p2)
+        // 2번 문제 : 상품 상세 화면!! (p2)
         // Product(p2, p2Options) -> ProductDetail
 
 
-        // 3번 문제 : 주문 확인 상세 화면! (or2)
+        // 3번 문제 : 주문 확인 상세 화면!! (or2)
         // 틀렸음 : TempDTO 담기
 
 
-        // 4번 문제 : 주문 확인 상세 화면! (or1)
+        // 4번 문제 : 주문 확인 상세 화면!! (or1)
         // (orOption1, orOption2), (orOption3) -> OrderDetailDTO
 
     }

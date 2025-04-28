@@ -1,10 +1,12 @@
 package ex01;
 
+import com.google.gson.Gson;
 import model.Order;
 import model.OrderOption;
 import model.Product;
 import model.ProductOption;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,6 +33,7 @@ public class App1 {
         OrderOption orOption1 = new OrderOption(1, "파란바지", 2, 2000, p1, or1);
         OrderOption orOption2 = new OrderOption(2, "빨간바지", 2, 4000, p1, or1);
         OrderOption orOption3 = new OrderOption(3, "하얀티", 5, 10000, p2, or1);
+        List<OrderOption> or1Options = Arrays.asList(orOption1, orOption2, orOption3);
 
         op1.setQty(op1.getQty() - 2);
         op2.setQty(op2.getQty() - 2);
@@ -43,17 +46,36 @@ public class App1 {
 
         // 1번 문제 : 상품 목록 화면!!
         // List<Product> -> List<ProductDTO>
+        List<ProductDTO> productDTOs = new ArrayList<>();
+        for (Product p : products) {
+            productDTOs.add(new ProductDTO(p));
+        }
+
+        Gson gson = new Gson();
+        String ex01 = gson.toJson(productDTOs);
+        //System.out.println(ex01);
+
+        Product p3 = p1; //얕은복사
 
         // 2번 문제 : 상품 상세 화면!! (p2)
         // Product(p2, p2Options) -> ProductDetail
+        ProductDetailDTO productDetailDTO = new ProductDetailDTO(p2, p2Options);
+        String ex02= gson.toJson(productDetailDTO);
+        //System.out.println(ex02);
 
 
         // 3번 문제 : 주문 확인 상세 화면!! (or2)
         // 틀렸음 : TempDTO 담기
+        TempDTO tempDTO = new TempDTO(orOption4);
+        String ex03 = gson.toJson(tempDTO);
+        //System.out.println(ex03);
 
 
         // 4번 문제 : 주문 확인 상세 화면!! (or1)
-        // (orOption1, orOption2), (orOption3) -> OrderDetailDTO
+        // p1(orOption1, orOption2), p2(orOption3) -> OrderDetailDTO
+        OrderDetailDTO orderDetailDTO = new OrderDetailDTO(or1Options);
+        String ex04 = gson.toJson(orderDetailDTO);
+        System.out.println(ex04);
 
     }
 }

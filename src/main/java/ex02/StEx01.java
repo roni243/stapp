@@ -37,7 +37,7 @@ public class StEx01 {
                 .toList();
         System.out.println(new21);
 
-        //3. count(개수), sort(정렬), distinct(중복제거)
+        // 3. count(개수), sort(정렬), distinct(중복제거)
         var new31 = list.stream()
                 .sorted(Comparator.reverseOrder())
                 .map(i -> i / 3)
@@ -57,12 +57,12 @@ public class StEx01 {
                 .entrySet()
                 .stream()
                 .toList();
-        //System.out.println(new51);
+        System.out.println(new51);
 
 
-        //Gson gson = new Gson();
-        //String body = gson.toJson(new51);
-        //System.out.println(body);
+//        Gson gson = new Gson();
+//        String body = gson.toJson(new51);
+//        System.out.println(body);
 
     }
 

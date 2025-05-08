@@ -84,10 +84,13 @@ public class App1 {
 
         // 2번 문제 : 상품 상세 화면!! (p2)
         // Product(p2, p2Options) -> ProductDetail
+
+        //1단계
         ProductDetailDTO productDetailDTO = new ProductDetailDTO(p2, p2Options);
 
         System.out.println(productDetailDTO);
 
+        //2단계
         List<ProductDetailDTO.ProductOptionDTO> allOptions = new ArrayList<>();
 
         for(ProductDetailDTO.ProductOptionDTO productOption : productDetailDTO.getOptions()) {
@@ -96,12 +99,14 @@ public class App1 {
 
         System.out.println(allOptions);
 
+        //3단계
         Map<String, List<ProductDetailDTO.ProductOptionDTO>> grouped =
                 allOptions.stream()
                         .collect(Collectors.groupingBy(productOption -> productOption.getOptionName()));
 
         System.out.println(grouped);
 
+        //4단계
         List<ProductDetailDTO.ProductOptionDTO> mergedList = new ArrayList<>();
 
         for (List<ProductDetailDTO.ProductOptionDTO> list : grouped.values()) {
@@ -126,10 +131,13 @@ public class App1 {
 
         // 4번 문제 : 주문 확인 상세 화면!! (or1)
         // p1(orOption1, orOption2), p2(orOption3) -> OrderDetailDTO
+
+        //1단계
         OrderDetailDTO orderDetailDTO = new OrderDetailDTO(or1Options);
 
         System.out.println(orderDetailDTO);
 
+        //2단계
         List<OrderDetailDTO.ProductDTO.OrderOptionDTO> allOptions2 = new ArrayList<>();
 
         for (OrderDetailDTO.ProductDTO product : orderDetailDTO.getProducts()) {
@@ -140,12 +148,14 @@ public class App1 {
 
         System.out.println(allOptions2);
 
+        //3단계
         Map<String, List<OrderDetailDTO.ProductDTO.OrderOptionDTO>> grouped2 =
                 allOptions2.stream()
                         .collect(Collectors.groupingBy(option -> option.getOrderOptionName()));
 
         System.out.println(grouped2);
 
+        //4단계
         List<OrderDetailDTO.ProductDTO.OrderOptionDTO> mergedList2 = new ArrayList<>();
 
         for (List<OrderDetailDTO.ProductDTO.OrderOptionDTO> list : grouped2.values()) {
